@@ -15,7 +15,12 @@ public class GameManager : MonoBehaviour
     }
     
     private void Awake() {
-        
+        if(sharedInstance == null){
+            sharedInstance = this;
+            DontDestroyOnLoad(gameObject);
+        }else{
+            Destroy(gameObject);
+        }
     }
 
     private void Start()

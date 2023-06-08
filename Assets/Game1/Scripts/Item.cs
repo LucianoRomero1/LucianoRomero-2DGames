@@ -16,21 +16,18 @@ public class Item : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision) {
         switch(collision.gameObject.tag){
             case "Player":
-                //logica
-                Debug.Log("Player");
-                if(tag == "Bad"){
-
-                }
-
-
+                IncreaseScore();
                 break;
             case "Floor":
                 Debug.Log("Floor");
                 break;
         }
+
+        Destroy(gameObject);
     }
 
     private void IncreaseScore(){
         GameManager.Instance.finalScore += score;
+        Debug.Log(GameManager.Instance.finalScore);
     }
 }
