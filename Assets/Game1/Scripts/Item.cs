@@ -19,7 +19,6 @@ public class Item : MonoBehaviour
                 IncreaseScore();
                 break;
             case "Floor":
-                Debug.Log("Floor");
                 break;
         }
 
@@ -28,6 +27,5 @@ public class Item : MonoBehaviour
 
     private void IncreaseScore(){
         GameManager.Instance.finalScore += score;
-        Debug.Log(GameManager.Instance.finalScore);
     }
 }
