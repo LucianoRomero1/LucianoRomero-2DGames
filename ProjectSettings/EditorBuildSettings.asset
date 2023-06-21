@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/LucianoRomero/Scenes/Runner.unity
     guid: 090adcbe83e00894cb611496a1d4456d
+  - enabled: 1
+    path: Assets/LucianoRomero/Scenes/Piano.unity
+    guid: 630683e7cff6b5e4cb8895e5b773f3b2
   m_configObjects: {}

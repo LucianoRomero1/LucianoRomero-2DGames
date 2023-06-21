@@ -12,4 +12,12 @@ public class Menu : MonoBehaviour
     public void GoToGame2(){
         SceneManager.LoadScene("Runner");
     }
+
+    public void GoToPiano(){
+        SceneManager.LoadScene("Piano");
+    }
+
+    public void BackToMenu(){
+        SceneManager.LoadScene("Menu");
+    }
 }
