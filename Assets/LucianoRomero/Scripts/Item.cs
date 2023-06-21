@@ -18,10 +18,10 @@ public class Item : MonoBehaviour
             case "Player":
                 switch(tag){
                     case "Good":
-                        //TODO: ACTIVAR ESTO CUANDO PONGA LOS SONIDOS //GameManager.Instance.PlayAudioClip(0);
+                        GameManager.Instance.PlayAudioClip(0);
                         break;
                     case "Bad":
-                        //TODO: ACTIVAR ESTO CUANDO PONGA LOS SONIDOS //GameManager.Instance.PlayAudioClip(1);
+                        GameManager.Instance.PlayAudioClip(1);
                         break;
                 }
 

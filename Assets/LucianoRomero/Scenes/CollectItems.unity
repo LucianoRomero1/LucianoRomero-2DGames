@@ -1317,9 +1317,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b4f10da237729684d9347ea6ab573117, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -8873,7 +8873,9 @@ MonoBehaviour:
   finalScoreText: {fileID: 1368917057}
   finalPanel: {fileID: 697185067}
   timeLeft: 30
-  audios: []
+  audios:
+  - {fileID: 8300000, guid: 7a3765bce0ba9214eb46d3827ecdc866, type: 3}
+  - {fileID: 8300000, guid: fcc27b03c2076e44a901da1f4cfadca6, type: 3}
   _audioSource: {fileID: 0}
 --- !u!4 &1749861731
 Transform:
@@ -8902,7 +8904,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
