@@ -4,16 +4,26 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
+[RequireComponent(typeof(AudioSource))]
 public class GameManager : MonoBehaviour
 {
     [SerializeField] List<GameObject> items;
     [SerializeField] GameObject parent;
+
+    [Header("UI")]
+    [Space]
     public int finalScore = 0;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI timeLeftText;
     public TextMeshProUGUI finalScoreText;
     public GameObject finalPanel;
     public float timeLeft;
+
+    [Header("Audio")]
+    [Space]
+    public List<AudioClip> audios;
+    [SerializeField] private AudioSource _audioSource;
+
     private static GameManager sharedInstance;
     
     public static GameManager Instance {
@@ -23,10 +33,14 @@ public class GameManager : MonoBehaviour
     private void Awake() {
         if(sharedInstance == null){
             sharedInstance = this;
-            DontDestroyOnLoad(gameObject);
+            //Comento este DontDestroyOnLoad porque hice una mini escena de Menu para 
+            //que no genere errores la perdida de referencias
+            // DontDestroyOnLoad(gameObject);
         }else{
             Destroy(gameObject);
         }
+
+        _audioSource = GetComponent<AudioSource>();   
     }
 
     private void Start()
@@ -79,5 +93,10 @@ public class GameManager : MonoBehaviour
     public void ShowValue(){
         string valor = GameObject.Find("Input").GetComponent<TMP_InputField>().text;
         GameObject.Find("Output").GetComponent<TMP_Text>().text = valor;
+    }
+
+    public void PlayAudioClip(int indexList){
+        _audioSource.clip = audios[indexList];
+        _audioSource.Play();
     }
 }
