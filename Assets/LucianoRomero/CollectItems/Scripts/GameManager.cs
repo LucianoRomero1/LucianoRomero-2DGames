@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -25,22 +24,27 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioSource _audioSource;
 
     private static GameManager sharedInstance;
-    
-    public static GameManager Instance {
-        get {return sharedInstance; }
+
+    public static GameManager Instance
+    {
+        get { return sharedInstance; }
     }
-    
-    private void Awake() {
-        if(sharedInstance == null){
+
+    private void Awake()
+    {
+        if (sharedInstance == null)
+        {
             sharedInstance = this;
             //Comento este DontDestroyOnLoad porque hice una mini escena de Menu para 
-            //que no genere errores la perdida de referencias
+            //que no genere errores la pérdida de referencias
             // DontDestroyOnLoad(gameObject);
-        }else{
+        }
+        else
+        {
             Destroy(gameObject);
         }
 
-        _audioSource = GetComponent<AudioSource>();   
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -51,17 +55,21 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         scoreText.text = finalScore.ToString("0");
-        if(timeLeft > 1f){
+        if (timeLeft > 1f)
+        {
             timeLeft -= Time.deltaTime;
             timeLeftText.text = timeLeft.ToString("0");
-        }else{
+        }
+        else
+        {
             GameOver();
         }
 
         scoreText.text = finalScore.ToString("0");
     }
 
-    private void SpawnItem(){
+    private void SpawnItem()
+    {
         var i = Random.Range(0, items.Count - 1);
         var temporalItem = Instantiate(items[i]);
 
@@ -76,26 +84,31 @@ public class GameManager : MonoBehaviour
         temporalItem.transform.parent = parent.transform;
     }
 
-    private void GameOver(){
+    private void GameOver()
+    {
         Time.timeScale = 0;
         CancelInvoke("SpawnItem");
-        if(finalPanel != null){
+        if (finalPanel != null)
+        {
             finalPanel.SetActive(true);
         }
 
         finalScoreText.text = finalScore.ToString("0");
     }
 
-    public void GoToMenu(){
+    public void GoToMenu()
+    {
         SceneManager.LoadScene("Menu");
     }
 
-    public void ShowValue(){
+    public void ShowValue()
+    {
         string valor = GameObject.Find("Input").GetComponent<TMP_InputField>().text;
         GameObject.Find("Output").GetComponent<TMP_Text>().text = valor;
     }
 
-    public void PlayAudioClip(int indexList){
+    public void PlayAudioClip(int indexList)
+    {
         _audioSource.clip = audios[indexList];
         _audioSource.Play();
     }

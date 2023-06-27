@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -9,28 +7,29 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Animator animator;
 
-    private void Awake() {
+    private void Awake()
+    {
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-    }
-
-    private void Start() {
-        
     }
 
     private void Update()
     {
         var movementValue = Input.GetAxis("Horizontal");
 
-        if(movementValue == 0f){
+        if (movementValue == 0f)
+        {
             animator.SetBool("isRunning", false);
         }
 
-        if(movementValue > 0f){
+        if (movementValue > 0f)
+        {
             spriteRenderer.flipX = false;
             animator.SetBool("isRunning", true);
-        }else if(movementValue < 0f) {
+        }
+        else if (movementValue < 0f)
+        {
             spriteRenderer.flipX = true;
             animator.SetBool("isRunning", true);
         }
